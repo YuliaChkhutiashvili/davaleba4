@@ -1,0 +1,99 @@
+/* Custom Variables & Colors */
+:root {
+  --color-sedans: hsl(31, 77%, 52%);
+  --color-suvs: hsl(184, 100%, 22%);
+  --color-luxury: hsl(179, 100%, 13%);
+  
+  --color-text-main: hsla(0, 0%, 100%, 0.75);
+  --color-bg-light: hsl(0, 0%, 95%);
+  --border-radius-card: 8px;
+  
+  --font-heading: 'Big Shoulders Display', cursive;
+  --font-body: 'Lexend Deca', sans-serif;
+}
+
+/* Base Reset & Centering */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-bg-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 24px;
+}
+
+/* Card Container (Grid Layout) */
+.card-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 920px;
+  overflow: hidden;
+  border-radius: var(--border-radius-card);
+}
+
+/* Individual Card Styling */
+.card {
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Typography Scale */
+.card__title {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  color: #FFFFFF;
+  font-size: 2.5rem;
+  margin: 35px 0 25px;
+}
+
+.card__description {
+  font-family: var(--font-body);
+  color: var(--color-text-main);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 80px;
+  flex-grow: 1;
+}
+
+/* Individual Card Background Colors */
+.card--sedans { background-color: var(--color-sedans); }
+.card--suvs { background-color: var(--color-suvs); }
+.card--luxury { background-color: var(--color-luxury); }
+
+/* Buttons & Interactions */
+.card__button {
+  font-family: var(--font-body);
+  background-color: #FFFFFF;
+  border: 2px solid transparent;
+  border-radius: 25px;
+  padding: 12px 30px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.card--sedans .card__button { color: var(--color-sedans); }
+.card--suvs .card__button { color: var(--color-suvs); }
+.card--luxury .card__button { color: var(--color-luxury); }
+
+/* Button Hover States */
+.card__button:hover {
+  background-color: transparent;
+  color: #FFFFFF !important;
+  border-color: #FFFFFF;
+}
+
+/* Desktop 3-Column Layout */
+@media (min-width: 768px) {
+  .card-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
